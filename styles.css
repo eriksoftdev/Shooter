@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scene {
+  width: 100%;
+  height: 80%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character {
+  width: 48px;
+  height: 48px;
+  background-image: url("Idle.png");
+  background-position: 0 0;
+  animation: idle 1s steps(6) infinite;
+  transform: scale(6);
+}
+
+@keyframes move {
+  100% {
+    background-position: -288px 0; /* Desplazar todo el ancho del sprite */
+  }
+}
+
+@keyframes idle {
+  100% {
+    background-position: -288px 0; /* Desplazar todo el ancho del sprite */
+  }
+}
+
+@keyframes attack {
+  100% {
+    background-position: -288px 0; /* Desplazar todo el ancho del sprite */
+  }
+}
