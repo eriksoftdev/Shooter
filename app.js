@@ -1,41 +1,19 @@
 let character = document.querySelector(".character");
+let enemy = document.querySelector(".enemy");
 
-let translate = 0;
+let punch = new Audio("sound/punch.mp3");
 
 addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") {
-    translate++; // Aumentar el valor de translate
-    character.style.backgroundImage = "url('Walk.png')";
-    character.style.transform = `scale(6) translateX(${translate}px)`; // Usar template literal correctamente
-    character.style.animation = "move 1s steps(6) infinite";
-    console.log("ArrowRight pressed");
-  }
-  if (e.key === "ArrowLeft") {
-    console.log("ArrowLeft pressed");
-    character.style.backgroundImage = "url('Walk.png')";
-    translate--; // Disminuir el valor de translate
-    character.style.transform = `scale(6) translateX(${translate}px) rotateY(180deg)`; // Usar template literal correctamente
-    character.style.animation = "move 1s steps(6) infinite";
+  if (e.key === "a" || e.key === "A") {
+    character.style.backgroundImage =
+      "url('images/punch/skeleton-04_punch_00.png')";
+    character.style.animation = "punch 1s steps(10) infinite";
+    punch.play();
   }
 });
 
 addEventListener("keyup", (e) => {
-  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-    character.style.backgroundImage = "url('Idle.png')";
-  }
-});
-
-addEventListener("keydown", (e) => {
-  if (e.key === "ArrowUp") {
-    console.log("Attack pressed");
-    character.style.backgroundImage = "url('Attack.png')";
-    character.style.transform = "scale(6)";
-    character.style.animation = "attack 1s steps(6) infinite";
-  }
-});
-
-addEventListener("keyup", (e) => {
-  if (e.key === "ArrowUp") {
-    character.style.backgroundImage = "url('Idle.png')";
+  if (e.key === "a" || e.key === "A") {
+    character.style.animation = "";
   }
 });
